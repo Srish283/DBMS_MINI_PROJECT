@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Travel and Tourism</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="images/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png')}}">
+    <link rel="icon" type="images/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png')}}">
+	
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css')}}">
+  <link rel="stylesheet" type="text/css" href="http://cdn.dcodes.net/2/payment_icons/dc_payment_icons.css" />
+{% endblock %}
+</head>
+<body>
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+        
+        <div class="container">
+                <div class="alert alert-info alert-dismissible fade in">
+                  <center>  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}</center>
+                </div>
+        </div>
+        
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+<div class="container">
+	<a href="/index" style="float: right;color:#1F49E9;"><input type="submit" value="Home"></a>
+  <div style="text-align:center">
+    <h1><strong style="padding-left: 105px;">Feedback Form</strong></h1>
+    <h3>Feel free to drop us your suggestions/feedback.</h3>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img src="{{url_for('static', filename='images/feed.png')}}" style="width: 100%;">
+    </div>
+    <div class="column">
+      <form action="/feedback" method="post">
+        <label for="fname">Your Name</label>
+        <input type="text" id="uname" name="username" placeholder="Your name..">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Your Email Address..">
+        <label name="scale">
+				<h5 style="padding:5px 0px;">
+					How satisfied are you overall with our support ?
+				</h5>
+				<div class="chart-scale">
+        <select name="scale">
+			    <option value ="1">1</option>
+          <option value ="2">2</option>
+          <option value ="3">3</option>
+          <option value ="4">4</option>
+          <option value ="5">5</option>
+                    
+        </select>
+				</div>			
+		</label>
+		
+		<label name="rating"><h5 style="padding:5px 0px;">How would your like to Rate our service:</h5></label>
+		<div class="rating" >
+
+  		<input name="rating"  value="5 Star" id="e5" type="radio"></a><label for="e5">★</label>
+		<input name="rating"  value="4 Star" id="e4" type="radio"></a><label for="e4">★</label>
+		<input name="rating"  value="3 Star" id="e3" type="radio"></a><label for="e3">★</label>
+		<input name="rating"  value="2 Star" id="e2" type="radio"></a><label for="e2">★</label>
+		<input name="rating"  value="1 Star" id="e1" type="radio"></a><label for="e1">★</label>
+		</div>
+        <label for="subject">Your Suggestion</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% set active_page = "index" %}
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         <div class="container">
+                <div class="alert alert-info alert-dismissible fade in">
+                  <center>  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}</center>
+                </div>
+        </div> 
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+
+<div id="hero" class="d-flex align-items-center">
+
+  <div class="container">
+    <div class="row">
+        
+    {% if current_user.is_authenticated %}
+    
+    <div class="mySlides w3-display-container w3-center">
+  
+    <div class="w3-display-topmiddle w3-container">
+          <h1 data-aos="fade-up" style="font-family: 'Lora', serif;font-size: 35px;color:#96292e "><strong><center>Welcome  {{ current_user.firstname }}  <br>Travel your Dream place with Wanderstruck</center></strong></h1>
+    </div>
+  
+   <img src="{{ url_for('static', filename='images/del.jpg')}}" class="img-fluid animated" style="width:100%;">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h2>Delhi</h2>
+      <h3><b> Delhi is blessed with several gardens and botanical houses and other various attractions.</b></h3>   
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <div class="w3-display-topmiddle w3-container">
+          <h1 data-aos="fade-up" style="font-family: 'Lora', serif;font-size: 35px;color:#96292e "><strong><center>Welcome  {{ current_user.firstname }}  <br>Travel your Dream place with Wanderstruck</center></strong></h1>
+        </div>
+  <img src="{{ url_for('static', filename='images/agra.jpg')}}" style="width:100% ">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h2>Agra</h2>
+      <h3><b>Visit the beautiful Mughal-era buildings, most notably the Taj Mahal, Agra Fort and Fatehpur Sikri, many other World Heritage Sites.</h3></p>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <div class="w3-display-topmiddle w3-container">
+          <h1 data-aos="fade-up" style="font-family: 'Lora', serif;font-size: 35px;color:#96292e "><strong><center>Welcome  {{ current_user.firstname }}  <br>Travel your Dream place with Wanderstruck</center></strong></h1>
+        </div>
+   <img src="{{ url_for('static', filename='images/mumbai1.jpg')}}" style="width:100% ">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h2>Mumbai</h2>
+      <h3><b>Visit Mumbai an alpha world city,one of the most populous metropolitan area in the world.</b></h3>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <div class="w3-display-topmiddle w3-container">
+          <h1 data-aos="fade-up" style="font-family: 'Lora', serif;font-size: 35px;color:#96292e "><strong><center>Welcome  {{ current_user.firstname }}  <br>Travel your Dream place with Wanderstruck</center></strong></h1>
+        </div>
+   <img src="{{ url_for('static', filename='images/manali.jpg')}}" style="width:100% ">
+    <div class="w3-display-bottommiddle w3-container w3-text-black w3-padding-32 w3-hide-small">
+      <h2>Manali</h2>
+      <h3><b>Experience thrilling adventures like Rafting,Paragliding,Skiing in Manali</b></h3>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <div class="w3-display-topmiddle w3-container">
+          <h1 data-aos="fade-up" style="font-family: 'Lora', serif;font-size: 35px;color:#96292e "><strong><center>Welcome  {{ current_user.firstname }}  <br>Travel your Dream place with Wanderstruck</center></strong></h1>
+        </div>
+   <img src="{{ url_for('static', filename='images/amritsar.jpg')}}" style="width:100% ">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h2>Amritsar</h2>
+      <h3><b>Visit Divine place Golden Temple in Amritsar.</b></h3>    
+    </div>
+  </div>
+ </div>
+ {% endif %}
+</div>
+</div>
+
+</div>
+  
+
+
+
+
+<!--End Section-->
+
+
+
+
+<!-- Footer -->
+
+
+
+<script>
+
+/*  Slideshow */ 
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 3000);    
+}
+
+
+  
+</script>
+
+{% endblock %}
+</body>
+</html>

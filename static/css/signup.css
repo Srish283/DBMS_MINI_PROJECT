@@ -1,0 +1,88 @@
+*{
+  box-sizing:border-box;
+}
+
+
+
+.container{
+  position: absolute;
+   top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+    box-shadow: -4px -4px 12px rgba(255, 255, 255, 1),
+    -4px -4px 14px rgba(255, 255, 255, 0.5),
+    inset 4px 4px 6px rgba(255, 255, 255, 0.1),
+    4px 4px 10px rgba(0, 0, 0, 0.15);
+    padding-top: 30px;
+  padding-bottom: 70px;
+}
+
+.form1{
+    font-size: 20px;
+    
+   
+  display: flex;
+
+   width: 500px;
+   justify-content: center;
+   justify-self: center;
+   align-content: center;
+   
+}     
+
+.form1 p{
+  padding-bottom: 10px;
+}
+
+.button{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 30px; 
+    background: #f1f1f1;
+    
+} 
+
+.button input{
+    padding: 6px;
+    letter-spacing: 2px;
+    color: #5a84a2;
+    border-radius: 5px;
+    box-shadow: -2px -2px 4px rgba(255, 255, 255, 1),
+    -2px -2px 8px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    2px 2px 6px rgba(0, 0, 0, 0.15);
+    
+    font-size: 17px;
+}
+
+.button input:hover {
+  display: inline-block;
+  transform: scale(0.97);
+}
+
+.button input:hover {
+  box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 1),
+  inset -2px -2px 8px rgba(255, 255, 255, 0.5),
+  inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+  inset 2px 2px 6px rgba(0, 0, 0, 0.15);  
+}
+
+input{
+    border: 0px;
+    padding: 5px;
+    border: 0px;
+    background-color: #e6e4e4;
+    border-radius: 3px;
+    
+}
+
+  
+@media screen and (max-width: 300px) {
+  .button {
+    width: 70%;
+  }
+}
+
+

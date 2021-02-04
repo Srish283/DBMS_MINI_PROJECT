@@ -1,0 +1,398 @@
+body {
+  
+ background: url(../images/backpack.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:100%;
+
+}
+
+#header-nav{
+  background:#203C60  ;
+  border-radius: 0;
+  border: 0;
+}
+.navbar-brand {
+    
+    padding-left: 45px;
+
+}
+.navbar-brand h1{
+  font-family: 'Lora' serif;
+  color: #557c3e;
+  font-size: 2.5vw;
+  text-transform: uppercase;
+  text-align:center; 
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  margin-top: 20px;
+  margin-left: 5px; 
+ 
+  margin-bottom: 0;
+  line-height: .75;
+}
+
+#navbar li a{
+  color:#fff;
+
+}
+ #navbar li a:hover{
+  color:black;
+   } 
+
+
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+#about{
+  background: url(../images/back2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 780px;
+  margin-top:42px; 
+}
+#about h1{
+  margin: 10px;
+  padding: 10px;
+  font-size: 45px;
+}
+
+#vision{
+  background: #0E4335;
+  color: #ffffff;
+}
+#vision p{
+  padding: 2px;
+}
+
+#mission{
+  background: #B8C4C1;
+  color: solid black; 
+}
+#mission p{
+  padding: 2px;
+}
+
+#me{
+  padding-top: 5px;
+
+} 
+#lax{
+  padding-top: 5px;
+}
+
+
+
+#package h1{
+  padding: 20px;
+  margin: 10px;
+
+}
+.thumbnail{
+	background:url('../images/back2.jpg') ;
+	}
+
+
+/* Accomondation Section */
+#hotel{
+  background: url('../images/hotel.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100%;
+  
+
+
+
+}
+#hotel h1{
+  padding: 20px 20px 0px 20px;
+  text-shadow: 1px 1px 1px #222;
+  color: #176FAE;
+}
+#hotel form{
+  padding: 50px;
+  
+}
+
+
+#hotel form label{
+  font-size: 28px;
+}
+
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+
+
+
+
+
+/* Transportation Section */
+#transport{
+  background: url('../images/transport.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+#transport h1{
+  padding-top: 30px;
+  font-style: serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+}
+
+.form-group{
+  padding: 10px 0px;
+}
+.form-group label{
+  font-size: 20px;
+  font-style: 'Lora' bold;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.btn{
+  margin-bottom: 15px;
+
+}
+
+
+
+/* Payment form */
+
+/*#PayFeed .inlineimage {
+  max-width: 470px;
+  margin-right: 8px;
+  margin-left: 10px
+}*/
+
+#PayFeed .images {
+  display: inline-block;
+  max-width: 98%;
+  height: auto;
+  width: 22%;
+  margin: 1%;
+  left: 20px;
+  text-align: center
+}
+
+
+
+
+
+/* Contact form */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+
+  /* FOOTER SECTION */
+footer{
+  background: #2c4762;
+}
+
+  .fa {
+  padding: 8px;
+  font-size: 30px;
+  width: 40px;
+  text-align: left;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-envelope-o{
+  background: #ffffff;
+  color:#FF6347;
+}
+
+
+.footer-copyright{
+  color: #ffffff;
+  padding-right: 3px;
+}
+

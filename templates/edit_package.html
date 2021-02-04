@@ -1,0 +1,52 @@
+{% extends "dashboard.html" %}
+{% block body %}
+<div class="container" style="padding:10px;">
+
+
+    <div class="col-lg-8 col-md-10 mx-auto">
+           <a href="/dashboard">  <button style="float:right;margin:8px;" class="btn btn-primary"> Dashboard Home</button></a>
+           <a href="/logout">  <button style="float:right;margin:8px;" class="btn btn-primary"> Logout</button></a>
+           <hr>
+    <div class="row align-items-center">
+    <h1>Update Package</h1>
+    <hr>
+    <div style="padding-top: 5px">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="container">
+                        <div class="alert alert-info alert-dismissible fade in">
+                        <center>  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ message }}</center>
+                        </div>
+                </div> 
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="col-10 offset-1 col-lg-8 offset-lg-2 d-flex justify-content-center align-items-center">
+        <form name="sentMessage" id="contactForm" action = "/edit/package/{{id}}" method="post">
+              <div class="form-group">
+                <label>Package Name</label>
+                <input type="text" class="form-control" placeholder="Package Name" id="pkname" name="pkname" value="{{post.package_name}}" required>
+              </div>
+              <div class="form-group">
+                <label>Package Cost</label>
+                <input type="text" class="form-control" placeholder="Package Cost" id="Rcost" name="cost" value="{{post.estimated_cost}}" required>
+              </div>
+              <div class="form-group">
+                <label>Number Of Days</label>
+                <input type="text" class="form-control" placeholder="Number of Days" id="numdays" name="numdays" value="{{post.numOfDays}}" required>
+              </div>
+
+            <br>
+            <div class="form-group">
+             <center> <button type="submit" style="padding:10px;font-size:15px;" class="btn btn-success" id="sendMessageButton">Submit</button></center>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

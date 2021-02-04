@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+
+<div class="row">
+{% if current_user.is_authenticated %}
+<h1><center>{{ current_user.firstname }}'s Travel Details</center></h1>
+{% endif %}
+<table class="table">
+  <thead>
+    <tr>
+      <th><strong>Travelling Details</strong></th>
+     
+    </tr>
+  </thead>
+  <tbody>
+  {% if current_user.is_authenticated %}
+    <tr>
+      <th scope="row">Name</th>
+      <td>{{current_user.firstname}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Email Address</th>
+      <td>{{current_user.email}}</td>
+      
+    </tr>
+    {% endif %}
+
+    
+    {% if pname %}
+    <tr>
+      <th scope="row">Package Booked</th>
+      <td>{{pname}}</td>
+      
+    </tr>
+    {% endif %}
+    {% if pdays %}
+    <tr>
+      <th scope="row">Number Of Days</th>
+      <td>{{pdays}}</td>
+      
+    </tr>
+    {% endif %}
+    {% if amt1 %}
+    <tr>
+      <th scope="row">Cost of Package</th>
+      <td>{{amt1}}</td>
+      
+    </tr>
+    {% endif %}
+    {% if ckid %}
+    <tr>
+      <th scope="row">Check-in Date</th>
+      <td>{{ ckid }}</td>
+      
+    </tr>
+    {% endif %}
+    {% if ckod %}
+    <tr>
+      <th scope="row">Check-out Date</th>
+      <td>{{ ckod}}</td>  
+    </tr>
+
+    {% endif %}
+    {% if amt2 %}
+    <tr>
+      <th scope="row">Resort Cost</th>
+      <td>{{ amt2 }}</td>  
+    </tr>
+    {% endif %}
+    {% if tranmode %}
+    <tr>
+      <th scope="row">Mode Of Transport</th>
+      <td>{{ tranmode }}</td>
+      
+    </tr>
+    {% endif %}
+    {% if boardp %}
+    <tr>
+      <th scope="row">Boarding Place</th>
+      <td>{{ boardp }}</td>  
+    </tr>
+    {% endif %}
+
+    {% if boardtm %}
+    <tr>
+      <th scope="row">Boarding Time</th>
+      <td>{{ boardtm }}</td>  
+    </tr>
+    {% endif %}
+    {% if amt3 %}
+    <tr>
+      <th scope="row">Transport Cost</th>
+      <td>{{ amt3 }}</td>  
+    </tr>
+    {% endif %}
+    <tr>
+      <th scope="row">Total Cost</th>
+      <td>{{total}}</td>
+      
+    </tr>
+  </tbody>
+</table>
+<center><a href="/PayFeed">  <button class="btn btn-primary">Make Payment</button></a></center><br>
+ <hr>
+</div>
+</div>
+
+{% endblock %}

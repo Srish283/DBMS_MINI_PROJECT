@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% set active_page = "about" %}
+ {% block body %}
+ <section id="about" class="about" >
+ <div class="container">
+  <div class="section-title text-center" data-aos="fade-up">
+      <h1 ><b>About Us</b></h1>
+        </div>
+
+        <div class="row content">
+          <div id="vision" class="col-lg-6" >
+            <h3><strong><center>Our Vision</center></strong></h3>
+            <p>
+             <li> Our vision is to provide outstanding travel & event experiences by creating inspiring journeys, meetings, unique incentive trips, immersive experiences support to client’s objectives.</li>
+             <li> We are passionate about providing travelers packages to enjoy their travel with other necessary services to facilitate their travel needs.</li>
+            </p>
+            
+          </div>
+          <div id="mission" class="col-lg-6" >
+            <h3><strong><center>Our Mission</center></strong></h3>
+            <p>
+              <li>To provide high excellence in service and quality of service to the customers.Develop and expand better relationship & understanding with our customer.</li>
+             <li style="padding-top: 5px;"> We aim to bring our clients the best in value and quality travel arrangements.</li>
+
+            </p>
+          </div>
+        </div>
+          
+           <div class="col-lg-6" id="me" style="float:none;margin:auto;" >
+              <div class="thumbnail ">                       
+                  <img src="{{ url_for('static', filename='images/Mypic.jpg')}}"  style="width:63%">
+                  <div class="caption">
+                    <p><center><strong style="font-size:30px;">Srishti Bhandarkar</strong></center></p>
+                    <p><center><strong style="color:#60D429;">Developer and Designer</strong></center></p>
+                    
+                  </div>
+              </div>
+            </div>
+        </div>
+
+      
+</section>
+
+
+
+{% endblock  %}

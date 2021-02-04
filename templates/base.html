@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Travel and Tourism</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="images/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png')}}">
+    <link rel="icon" type="images/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mainpg.css')}}">
+  <link rel="stylesheet" type="text/css" href="http://cdn.dcodes.net/2/payment_icons/dc_payment_icons.css" />
+{% endblock %}
+</head>
+<body>
+
+<header id="header-nav" class="fixed-top d-flex align-items-center">
+  <nav class="navbar navbar-default" role="navigation" style="background-color:#203C60;">
+    <div class="container">
+    <div class="navbar-header">
+      <a href="" class="pull-left visible-md visible-lg">
+            <div id="logo-img" alt="Logo image">
+              <img src="{{ url_for('static', filename='images/logo.png')}}" class="img-circle" style="max-width:120px;" alt="logo-img">
+            </div>
+      </a>
+      <div class="navbar-brand">
+            <a href=""><h1><center>WanderStruck</center></h1></a>
+      </div>
+
+        <div class="navbar-header"> 
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapses" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            
+        </button>   
+        </div> 
+      </div>
+      
+      
+    <div id="navbar" class="navbar-collapse collapse" >
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="{{ 'active' if active_page == 'index' else '' }}"><a href="/index" >Home</a></li>
+          <li class="{{ 'active' if active_page == 'about' else '' }}"><a href="/about" >AboutUs</a></li>
+          <li class="{{ 'active' if active_page == 'package' else '' }}"><a href="/package">Packages</a></li>
+          <li class="{{ 'active' if active_page == 'hotel' else '' }}"><a href="/hotel">Resort</a></li>
+        <li class="{{ 'active' if active_page == 'transport' else '' }}"><a href="/transport">Transport</a></li>
+          <li class="{{ 'active' if active_page == 'PayFeed' else '' }}"><a href="/PayFeed">Payment</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+  </div>
+
+</nav>
+    
+</header>
+
+<!-- End Header Here -->
+{% block body%}
+
+{% endblock%}
+
+<!--Contact Form-->
+<button class="open-button" onclick="openForm()">Facing any issues?<br>Contact us</button>
+
+<div class="form-popup" id="myForm">
+  <form action="/contact" class="form-container">
+    <h1><center><b>Get in Touch with Us</b></center></h1>
+
+    <button type="submit" class="btn">Contact us</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div> 
+</div>
+
+
+<!-- Footer -->
+<footer id="connect" class="page-footer">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Grid row-->
+    
+       <center>  <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+         
+          <a href="https://www.google.com" target="_blank" class="fa fa-google"></a>
+          <a href="https://www.linkedin.com/" target="_blank" class="fa fa-linkedin"></a>
+          
+          <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a>
+        <a href="https://www.gmail.com/" target="_blank" class="fa fa-envelope-o"></a>
+        </center>
+          
+     
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://Wanderstruck.com/"> WanderStruck.com</a>
+  </div>
+  <!-- Copyright -->
+</div>
+</footer>
+<!-- Footer -->
+<script>
+/* Contact Form */
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+
+<script src="{{ url_for('static', filename='js/jquery-2.1.4.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/ajax-utils.js')}}"></script>
+</body>
+</html>

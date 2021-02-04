@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% set active_page = "hotel" %}
+{% block body %}
+
+
+
+<section id="hotel" class="hotel">
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+        
+        <div class="container">
+                <div class="alert alert-info alert-dismissible fade in">
+                  <center>  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}</center>
+                </div>
+        </div>
+        
+      {% endfor %}
+   {% endif %}
+  {% endwith %}
+  <h1><center><strong>CHOOSE BEST ACCOMONDATION FOR YOU</strong></center></h1>
+ <center>
+  <form autocomplete="off" action="/hotel" method='post'>
+
+  
+    <div class="form-group">
+        <label for="startdate">Checkin Date:</label>
+        <input type="date" id="startdate" name="startdate" placeholder="Enter Checkin date">
+    </div>
+
+  <div class="form-group">
+  <label for="cost">Choose Your Starting Budget Range:</label><br>
+  <select name="cost" id="cost" style="width:300px;height:50px;">
+  <option value="2000">2000</option>
+    <option value="3000">3000</option>
+    <option value="4000">4000</option>
+    <option value="5000">5000</option>
+    <option value="6000">6000</option>
+    <option value="7000">7000</option>
+    <option value="8000">8000</option>
+    <option value="Above 8000 ">Above 8000 </option>
+  </select>
+</div>
+<h5 style="font-size: 30px;"><strong>Hotel Type</strong></h5>
+<div class="custom-control custom-radio custom-control-inline" style="padding: 20px;">
+      <input type="radio" class="custom-control-input" id="customRadio" name="example" value="2 Star">
+      <label class="custom-control-label" for="customRadio" style="padding-right: 10px;">2 Star</label>
+    
+      <input type="radio" class="custom-control-input" id="customRadio" name="example" value="3 Star">
+      <label class="custom-control-label" for="customRadio" style="padding-right: 10px;">3 Star</label>
+    
+    <input type="radio" class="custom-control-input" id="customRadio1" name="example" value="4 Star">
+    <label class="custom-control-label" for="customRadio2" style="padding-right: 10px;">4 Star</label>
+ 
+    <input type="radio" class="custom-control-input" id="customRadio2" name="example" value="5 Star">
+    <label class="custom-control-label" for="customRadio2">5 Star</label>
+  </div>
+  <input type="submit">
+</form></center>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{% block head %}
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel and Tourism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png')}}">
+<link rel="icon" type="images/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png')}}">
+<link rel="icon" type="images/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+
+{% endblock %}
+</head>
+<body style="background:url({{url_for('static',filename='images/logsign1.jpg')}});background-repeat: no-repeat;background-size:cover;background-position: center; height: 600px;">
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+        
+        <div class="container">
+                <div class="alert alert-info alert-dismissible fade in">
+                  <center>  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}</center>
+                </div>
+        </div>
+        
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+<div class="container">
+
+    <button onclick="document.location='{{ url_for('home') }}'" style="width:auto;float: right;margin-top:15px;"  class="btn btn-lg btn-primary navbar-btn navbar-right"> Back</button>
+    <h1 style="text-align: center; padding: 15px; color:#B51B7B;font-size: 40px;font-weight:bold;">Log In</h1>
+    
+    <p style="text-align: center;font-size: 20px;color:#fff;font-weight:bold;">Don't Have Account? <a href="{{ url_for('signup') }}" style="padding-bottom: 10px;color:#31B404;">Sign Up Here!</a></p><br>
+    <div class="form1">
+    <form action="/login" method="post">
+    
+        {{ form.hidden_tag() }}
+    
+        <p>
+            {{ form.email.label }} :<br>
+            {{ form.email(size=32,placeholder="Your Email") }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }} :<br>
+            {{ form.password(size=32,placeholder="Your Password") }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        
+        <p>{{ form.remember() }} {{ form.remember.label }}</p>
+        <center>
+        <p class="button" style="font-size:30px;color:black bold;">{{ form.submit() }}</p>
+        
+        </center>
+        
+       
+    </form>
+    </div>
+    </div>
+ {%endblock%}   
+</body>
+</html>

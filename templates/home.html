@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{% block head %}
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel and Tourism</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png')}}">
+<link rel="icon" type="images/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png')}}">
+<link rel="icon" type="images/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png')}}">
+
+{% endblock %}
+</head>
+<body>
+{% block body %}
+<header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="login.html" class="pull-left visible-md visible-lg">
+            <div id="logo-img" alt="Logo image">
+            	<img src="{{url_for('static',filename='images/logo.png')}}" class="img-circle" style="max-width:120px;" alt="logo-img">
+            </div>
+          </a>
+
+          <div class="navbar-brand">
+            <h1><center>Travel and Tourism</center></h1>
+          </div>
+         
+          <button onclick="document.location='{{ url_for('login') }}'" style="width:auto;float: right;" class="btn  btn-success navbar-btn navbar-right"> Login</button>
+          <button onclick="document.location='{{ url_for('signup') }}'" style="width:auto;float: right;" class="btn  btn-primary navbar-btn navbar-right"> SignUp </button>
+        </div>
+      </div>
+      </div>  
+    </nav><!-- #header-nav -->
+  </header>
+
+  
+  <section  class="container-fluid" >
+  	<h1 style="font-family:verdana;"><center><strong>WELCOME</strong></center></h1><br>
+  	<h1 style="font-family:verdana;"><center><strong>TO WANDERSTRUCK TRAVELS</strong></center></h1>
+  	<p><center><strong>We aim to bring our clients the best in value and quality travel arrangements.</strong></center></p><center><p><strong>We are passionate about providing travelers packages to enjoy their travel and other necessary services to facilitate their travel needs.</strong></center></p>
+  </section>
+  
+  <section  class="work">
+      <div class="container text-center">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2><strong>How It Works</strong></h2>
+          
+        
+          <div class="row ">
+            <div class="col-md-4">
+              <center><img src="{{ url_for('static', filename='images/account.jpg')}}" class="img-responsive " style="width:50%" alt="Image"></center>
+              <p><h4><b>Create an Account</b></h4></p>
+            </div>
+            <div class="col-md-4"> 
+              <center><img src="{{ url_for('static', filename='images/booking.jpg')}}" class="img-responsive" style="width:50%" alt="Image"></center>
+              <p><h4><b>Start Booking</b></h4></p>    
+            </div>
+            <div class="col-md-4">
+              <center><img src="{{ url_for('static', filename='images/travel.jpg')}}" class="img-responsive " style="width:50%" alt="Image"></center>
+              <p><h4><b>Travel Your Dream Place</b></h4></p> 
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+<h3>  <p>We would <i class="fa fa-heart" style="font-size:18px;color:red"></i> <a href="/feedback" style="color: #0000FF;">Your Suggestions/Feedback</a></p></h3>
+{% endblock %}
+
+
+<!--Contact Form-->
+<button class="open-button" onclick="openForm()">Facing any issues?<br>Contact us</button>
+
+<div class="form-popup" id="myForm">
+  <form action="/contact" class="form-container">
+    <h1><center><b>Get in Touch with Us</b></center></h1>
+
+    <button type="submit" class="btn">Contact us</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div> 
+</div>
+
+
+
+
+<script>
+/* Contact Form */
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+

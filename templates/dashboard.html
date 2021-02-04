@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% block head %}
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Travel and Tourism</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="images/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png')}}">
+    <link rel="icon" type="images/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mainpg.css')}}">
+  <link rel="stylesheet" type="text/css" href="http://cdn.dcodes.net/2/payment_icons/dc_payment_icons.css" />
+
+{% endblock %}
+</head>
+
+<body style="background:url({{url_for('static',filename='images/dash.jpg')}});background-repeat: no-repeat;background-size:cover;background-position: center; height: 100%;">
+{% block body %}
+  <!-- Navigation -->
+  <header id="header-nav" class="fixed-top d-flex align-items-center">
+  <nav class="navbar navbar-default" role="navigation" style="background-color:#203C60;">
+    <div class="container">
+    <div class="navbar-header">
+      <a href="" class="pull-left visible-md visible-lg">
+            <div id="logo-img" alt="Logo image">
+              <img src="{{ url_for('static', filename='images/logo.png')}}" class="img-circle" style="max-width:120px;" alt="logo-img">
+            </div>
+      </a>
+      <div class="navbar-brand">
+            <a href=""><h1><center>WanderStruck Travels Dashboard</center></h1></a>
+      </div>
+       
+    </div>
+    <button onclick="document.location='{{ url_for('logout') }}'" style="width:auto;float: right;"  class="btn  btn-success navbar-btn navbar-right"> Logout</button>
+    </div>
+  </nav>
+  </header>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+        
+        <div class="container">
+                <div class="alert alert-info alert-dismissible fade in">
+                  <center>  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}</center>
+                </div>
+        </div>
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+    <!-- Main Content -->
+<div class="container">
+  <div class="row">
+      
+    <h1><center>Users Registered</center></h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>User id</th>
+            <th>User's EmailId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Number</th>
+           <!-- <th>Password Hash</th>-->
+          </tr>
+        </thead>
+        <tbody>
+          {% for pkg in usr %}
+          <tr>
+            <td>{{pkg.id}}</td>
+            <td>{{pkg.email}}</td>
+            <td>{{pkg.firstname}}</td>
+            <td>{{pkg.lastname}}</td>
+            <td>{{pkg.number}}</td>
+          <!-- <td>{{pkg.password_hash}}</td> -->
+          </tr>  
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+
+  <div class="row">
+      
+    <h1><center>Packages Bought</center></h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Package id</th>
+            <th>User's EmailId</th>
+            <th>Package Name</th>
+            <th>Place</th>
+            <th>Number of Days</th>
+            <th>Package Cost</th>
+            <th>Date Booked</th>
+            <th>User ID</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pkg in packg %}
+          <tr>
+            <td>{{pkg.id}}</td>
+            <td>{{pkg.email}}</td>
+            <td>{{pkg.package_name}}</td>
+            <td>{{pkg.place}}</td>
+            <td>{{pkg.numOfDays}}</td>
+            <td>{{pkg.estimated_cost}}</td>
+            <td>{{pkg.date_booked}}</td>
+            <td>{{pkg.userid}}</td>
+            <td><a href="/edit/package/{{pkg.id}}"><button class="btn btn-primary">Update</button></a></td>
+            <td><a href="/delete/package/{{pkg.id}}"><button class="btn btn-danger">Delete</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+ <div class="row">
+      
+    <h1><center>Accomondation Booked</center></h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Resort id</th>
+            <th>User's EmailId</th>
+            <th>Check In Date</th>
+            <th>Check out Date</th>
+            <th>Place</th>
+            <th>Resort Cost</th>
+            <th>Star Type</th>
+            <th>User ID</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pkg in hotl %}
+          <tr>
+            <td>{{pkg.id}}</td>
+            <td>{{pkg.email}}</td>
+            <td>{{pkg.checkin_date}}</td>
+            <td>{{pkg.checkout_date}}</td>
+            <td>{{pkg.place}}</td>
+            <td>{{pkg.cost}}</td>
+            <td>{{pkg.star_type}}</td>
+            <td>{{pkg.userid}}</td>
+            <td><a href="/edit/hotel/{{pkg.id}}"><button class="btn btn-primary" >Update</button></a></td>
+            <td><a href="/delete/hotel/{{pkg.id}}"><button class="btn btn-danger">Delete</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      
+    <h1><center>Transportation </center></h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Transport id</th>
+            <th>User's EmailId</th>
+            <th>Mode Of Transport</th>
+            <th>Transport Cost</th>
+            <th>Start Date</th>
+            <th>Boarding Place</th>
+            <th>Destination Place</th>
+            <th>Boarding Time</th>
+            <th>User Id</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pkg in trans %}
+          <tr>
+            <td>{{pkg.id}}</td>
+            <td>{{pkg.email}}</td>
+            <td>{{pkg.mode_of_transport}}</td>
+            <td>{{pkg.trvcost}}</td>
+            <td>{{pkg.start_date}}</td>
+            <td>{{pkg.boarding_place}}</td>
+            <td>{{pkg.place}}</td>
+            <td>{{pkg.boarding_time}}</td>
+            <td>{{pkg.userid}}</td>
+            <td><a href="/edit/transport/{{pkg.id}}"><button class="btn btn-primary" >Update</button></a></td>
+            <td><a href="/delete/transport/{{pkg.id}}"><button class="btn btn-danger">Delete</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row">
+      
+    <h1><center>Payment For Package</center></h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Payment id</th>
+            <th>User's EmailId</th>
+            <th>Total Amount</th>
+            <th>Place Booked</th>
+            <th>User ID</th>
+            
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pkg in paym %}
+          <tr>
+            <td>{{pkg.id}}</td>
+            <td>{{pkg.email}}</td>
+            <td>{{pkg.total_amount}}</td>
+            <td>{{pkg.bookedpack}}</td>
+            <td>{{pkg.userid}}</td>
+            <td><a href="/delete/payment/{{pkg.id}}"><button class="btn btn-danger">Delete</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+ <div class="row">
+      
+    <h1><center>Contacted Me </center></h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>User's EmailId</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Date</th>
+            <th>Message</th>
+            <th>Action
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pkg in cont %}
+          <tr>
+            <td>{{pkg.id}}</td>
+            <td>{{pkg.email}}</td>
+            <td>{{pkg.name}}</td>
+            <td>{{pkg.phone_num}}</td>
+            <td>{{pkg.date}}</td>
+            <td>{{pkg.msg}}</td>
+            <td><a href="/delete/contact/{{pkg.id}}"><button class="btn btn-danger">Solve It</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      
+    <h1><center>Our Ratings</center></h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>User's Email</th>
+            <th>Name</th>
+            <th>Scale</th>
+            <th>Rating</th>
+            <th>Feedback</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pkg in feedb %}
+          <tr>
+            <td>{{pkg.id}}</td>
+            <td>{{pkg.email}}</td>
+            <td>{{pkg.username}}</td>
+            <td>{{pkg.scale}}</td>
+            <td>{{pkg.rating}}</td>
+            <td>{{pkg.feedback}}</td>
+            <td><a href="/delete/feedback/{{pkg.id}}"><button class="btn btn-danger">Confirm It</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}
+<!--Footer here-->
+ 
+<footer id="connect" class="page-footer">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Grid row-->
+    
+       <center>  <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+         
+          <a href="https://www.google.com" target="_blank" class="fa fa-google"></a>
+          <a href="https://www.linkedin.com/" target="_blank" class="fa fa-linkedin"></a>
+          
+          <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a>
+        <a href="https://www.gmail.com/" target="_blank" class="fa fa-envelope-o"></a>
+        </center>
+          
+     
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://Wanderstruck.com/"> WanderStruck.com</a>
+  </div>
+</div>
+</footer>
+<!--End Footer-->
+</body>
+</html>

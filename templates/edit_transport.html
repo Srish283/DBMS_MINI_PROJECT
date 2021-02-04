@@ -1,0 +1,172 @@
+{% extends "dashboard.html" %}
+{% block body %}
+
+
+    <div class="container" style="padding:10px;">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          
+           <a href="/dashboard" style="padding:10px;">  <button style="float:right;margin:8px;" class="btn btn-primary"> Dashboard Home</button></a>
+           <a href="/logout" style="padding:10px;">  <button style="float:right;margin:8px;" class="btn btn-primary"> Logout</button></a>
+          
+    <div class="row align-items-center">
+    <h1>Update Transportation</h1>
+    <div style="padding-top: 5px">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="container">
+                        <div class="alert alert-info alert-dismissible fade in">
+                        <center>  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ message }}</center>
+                        </div>
+                </div> 
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+<div class="col-10 offset-1 col-lg-8 offset-lg-2 d-flex justify-content-center align-items-center">
+        <form name="sentMessage" id="transportForm" action = "/edit/transport/{{id}}" method="post">
+            <div class="form-group">
+                <label>Mode Of Transport</label>
+                <select class="custom-select" id="inputGroupSelect01" name="mode_transport" >
+                {% if pos %}
+                        <option selected >Choose...</option>
+                        {% for posto in pos %}
+                        <option value="{{ posto }}">{{ posto }}</option>
+                        {% endfor %}
+                {% endif %}
+                </select>
+            </div>
+
+              <div class="form-group">
+                <label>Travel Cost</label>
+                <input type="text" class="form-control" placeholder="Traveel cost"  name="trvcost" value="{{post.trvcost}}" required>
+              </div>
+
+              <div class="form-group autocomplete">
+                <label>Boarding Place</label>
+                <input id="myInput" type="text"  class="form-control" placeholder="Author"  name="myCountry" value="{{post.boarding_place}}" required>
+              </div>
+       
+              <div class="form-group">
+                <label>Boarding Time</label>
+                <input type="time" class="form-control" placeholder="Boarding Time" name = "boarding_time"  value="{{post.boarding_time}}" required>
+              </div>
+              
+            <br>
+            <div class="form-group">
+             <center> <button style="padding:10px;font-size:15px;" type="submit" class="btn btn-success" id="sendMessageButton">Submit</button></center>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+<script>
+/* Autocompletes statement*/
+
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var cities = ["Agra","Amritsar","Bangalore","Bhopal","Chennai","Dehradun","Delhi","Goa","Gujrat","Hedrabad","Jaipur","Kashmir","Kerala","Kolkata","Manali","Mangalore","Mumbai","Mysore","Ooty","Orrisa","Shimla","Sikkim"];
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), cities);
+</script>
+
+{% endblock %}

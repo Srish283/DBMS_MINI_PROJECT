@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+{% set active_page = "package" %}
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+        
+        <div class="container">
+                <div class="alert alert-info alert-dismissible fade in">
+                  <center>  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}</center>
+                </div>
+        </div>
+        
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+<!-- Packages Section-->
+ <section id="package" class="package">    
+ <h1><strong><center>CHOOSE YOUR PACKAGE</center></strong></h1>  
+  <div class="row">
+  <div class="col-lg-3 col-md-6 col-xs-12 ">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/delhi.jpg')}}" alt="Delhi" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+         <center><input type="submit" name="submit_button" value="Delhi"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;20,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>9Nights/10days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+          
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/mumbai.jpg')}}" alt="mumbai" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+          <center><input type="submit" name="submit_button" value="Mumbai"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;23,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>9Nights/10days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/bangalore.jpg')}}" alt="bangalore" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+          <center><input type="submit" name="submit_button" value="Bangalore"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;17,500/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>9Nights/10days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/agra.jpg')}}" alt="agra" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+          <center><input type="submit" name="submit_button" value="Agra"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;13,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>7Nights/8days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-xs-12 ">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/amritsar.jpg')}}" alt="amritsar" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+          <center><input type="submit" name="submit_button" value="Amritsar"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;8,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>7Nights/8days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/chennai.jpg')}}" alt="chennai" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+          <center><input type="submit" name="submit_button" value="Chennai"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;10,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>7Nights/8days</strong></center></p>
+          
+          
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12 ">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/hedrabad.jpg')}}" alt="hedrabad" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+          <center><input type="submit" name="submit_button" value="Hedrabad"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;9,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>7Nights/8days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12 ">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/gujrat.jpg')}}" alt="gujrat" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+          <center><input type="submit" name="submit_button" value="Gujrat"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;7,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>7Nights/8days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/mysore.jpg')}}" alt="mysore" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Mysore"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;5,100/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>4Nights/5days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+          
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/dehradun.jpg')}}" alt="dehradun" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Dehradun"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;5,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>4Nights/5days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/goa.jpg')}}" alt="goa" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Goa"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;5,400/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>4Nights/5days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/jaipur.jpg')}}" alt="jaipur" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Jaipur"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;10,500/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>9Nights/10days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/kashmir.jpg')}}" alt="kashmir" style="width:100%">
+        <div class="caption">
+      <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Kashmir"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;11,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>7Nights/8days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="/">
+        <img src="{{ url_for('static', filename='images/kerala.jpg')}}" alt="kerela" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Kerela"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;7,300/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>7Nights/8days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/bhopal.jpg')}}" alt="bhopal" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Bhopal"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;5,750/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>4Nights/5days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12 ">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/manali.jpg')}}" alt="manali" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Kullu Manali"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;8,200/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>9Nights/10days</strong></center></p>
+          <p><center><strong style="color:#60D429;">In Demand</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="/package">
+        <img src="{{ url_for('static', filename='images/ooty.jpg')}}" alt="ooty" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Ooty"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;4,800/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>3Nights/4days</strong></center></p>
+         
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/orrisa.jpg')}}" alt="orisa" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Orrissa"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;5,900/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>5Nights/6days</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12 ">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/sikkim.jpg')}}" alt="sikkim" style="width:100%">
+        <div class="caption">
+        <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Sikkim"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;6,800/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>4Nights/5days</strong></center></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="thumbnail">
+      <a href="">
+        <img src="{{ url_for('static', filename='images/shimla.jpg')}}" alt="shimla" style="width:100%">
+        <div class="caption">
+          <form method="post" action="/package">
+           <center><input type="submit" name="submit_button" value="Shimla"></center></form>
+          <p><center><strong>Price Starting at:&#x20B9;9,000/person</strong></center></p>
+          <p><center><strong style='color:#08D3D5'>7Nights/8days</strong></center></p>
+         
+        </div>
+      </a>
+    </div>
+  </div>
+  
+</div>
+</section> 
+
+
+{% endblock %}

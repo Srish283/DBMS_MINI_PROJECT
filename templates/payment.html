@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% set active_page = "PayFeed" %}
+{% block body %}
+
+
+
+
+
+<section id="PayFeed" class="PayFeed">
+<div class="container">
+    <div class="page-header text-center">
+        <h1><strong>Payment Confirmation Gateway</strong></h1>
+        <h3>Check your Travel Details Here <button onclick="document.location='{{ url_for('travellerInfo') }}'"  class="btn  btn-success navbar-btn ">My Details</button></h3>
+    </div>
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+        
+        <div class="container">
+                <div class="alert alert-info alert-dismissible fade in">
+                  <center>  <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}</center>
+                </div>
+        </div>
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+    <!-- Credit Card Payment Form - START -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <h3 class="text-center">Payment Details</h3>
+                            <div class="card-row">
+                                <span class="dc_payment_icons_glossy_75 dc_visa_glossy" title="Visa"></span>
+                                <span class="dc_payment_icons_glossy_75 dc_mastercard_glossy" title="Mastercard"></span>
+                                <span class="dc_payment_icons_glossy_75 dc_discover_glossy" title="Discover"></span>
+                                <span class="dc_payment_icons_glossy_75 dc_maestro_glossy" title="Maestro"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" method="post" action="/PayFeed">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group"> <label>Package Amount</label>
+                                        <div class="input-group"> <input type="text" id="cardNum" size="20" name="amt1" value="{{amt1}}" class="form-control" placeholder="package amount" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7 col-md-7">
+                                    <div class="form-group"> <label><span class="hidden-xs">Accomandation</span><span class="visible-xs-inline">Hotel</span> Amount</label> <input type="text" class="form-control" name="amt2" value="{{amt2}}" placeholder="Hotel Amount" /> </div>
+                                </div>
+                                <div class="col-xs-5 col-md-5 pull-right">
+                                    <div class="form-group"> <label>Transport Amount</label> <input type="text"  name="amt3" class="form-control" value="{{amt3}}" placeholder="transport Cost" /> </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group"> <label>Total Amount</label> <input type="text" class="form-control" value="{{totl}}" placeholder="Total Amount" /> </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-12"> <button class="btn btn-success btn-lg btn-block">Confirm Payment</button> </div>
+                        </div>
+                        
+                    </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <h3>  <p>We would <i class="fa fa-heart" style="font-size:18px;color:red"></i> <a href="/feedback" style="color: #1F49E9;">Your Feedback</a></p></h3>
+    </div>
+</div>
+</section>
+
+<script>
+function validatecardnumber() {
+  // Strip spaces and dashes
+  var ccNum = document.getElementById("cardNum").value;
+  var visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  var mastercardRegEx = /^(?:5[1-5][0-9]{14})$/;
+  var maestroRegEx = /^(5018|5020|5038|5893|6304|6759|6761|6762|6763)[0-9]{8,15}$/;
+  var discovRegEx = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+  var isValid = false;
+
+  if (visaRegEx.test(ccNum)) {
+    isValid = true;
+  } else if(mastercardRegEx.test(ccNum)) {
+    isValid = true;
+  } else if(maestroRegEx.test(ccNum)) {
+    isValid = true;
+  } else if(discovRegEx.test(ccNum)) {
+    isValid = true;
+  }
+
+  if (!(isValid)) {
+     alert("Please provide a valid Visa number!");
+  } 
+}
+</script>
+ {% endblock %}
